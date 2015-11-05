@@ -7,6 +7,6 @@ import play.api.libs.concurrent.Execution.Implicits.defaultContext
 
 object SampleController extends Controller {
 	def sample = Action {
-		Ok("Working!")
+		Ok(views.html.landing("Title!"))
 	}
 }
