@@ -1,3 +1,4 @@
+@import com.fjp.models._
 @(title: String)(content: Html)
 <!DOCTYPE html>
 <html lang="en" class="uk-height-1-1">
@@ -18,11 +19,26 @@
 				</ul>
 			</nav>
 		</div>
-		<div class="uk-width-3-4 uk-container-center uk-grid">
+		<div class="uk-width-3-4 uk-container-center uk-grid" data-uk-grid-match>
 			@content
 		</div>
-		<div class="uk-width-3-4 uk-container-center uk-grid">
-			<!-- Social media, donate, other footer / action items -->
+		<div class="uk-width-1-2 uk-container-center" >
+			<ul class="uk-grid uk-container-center" data-uk-grid-margin>			
+			@DummyData.footerLinks.map { item => 
+				<li class="uk-width-medium-1-6">
+					@item match { 
+						case menuItem: ImageLink => { 
+							<a href="@(menuItem.href)">
+								<img src="@(menuItem.imgSrc)"/>
+							</a> 
+							} 
+						case menuItem: HtmlItem => { 
+							@Html(menuItem.html)
+						}
+					}
+				</li>
+				}
+			</ul>
 		</div>
 	</body>
 </html>
