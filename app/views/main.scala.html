@@ -1,20 +1,28 @@
 @(title: String)(content: Html)
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="uk-height-1-1">
 	<head>
 		<title>@title</title>
 		<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script async src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.23.0/js/uikit.min.js"></script>
 	</head>
-	<body>
-		<nav class="uk-navbar">
-			<ul class="uk-navbar-nav">
-				<li class="uk-active"><a href="">Home</a></li>
-				<li><a href="">Place</a></li>
-				<li class="uk-parent"><a href="">Drop</a></li>
-			</ul>
-		</nav>
-		@content
+	<body class="uk-height-1-1">
+		<div class="uk-width-medium-1-2 uk-container-center">
+			<nav class="uk-navbar">
+				<ul class="uk-navbar-nav">
+
+					<li class="uk-active"><a href="">Home</a></li>
+					<li><a href="">Place</a></li>
+					<li class="uk-parent uk-navbar-center"><a href="">Drop</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="uk-width-3-4 uk-container-center uk-grid">
+			@content
+		</div>
+		<div class="uk-width-3-4 uk-container-center uk-grid">
+			<!-- Social media, donate, other footer / action items -->
+		</div>
 	</body>
 </html>
